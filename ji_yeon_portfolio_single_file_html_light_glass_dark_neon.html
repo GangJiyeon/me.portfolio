@@ -37,24 +37,24 @@
 
     *{box-sizing:border-box; margin:0; padding:0}
     body{font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,"Apple SD Gothic Neo","Noto Sans KR","맑은 고딕",Arial,sans-serif; background:var(--bg); color:var(--text); overflow-x:hidden}
-    .wrap{max-width:1100px; margin:0 auto; padding:36px 20px 90px}
+    .wrap{max-width:1200px; margin:0 auto; padding:36px 20px 90px}
 
     /* Topbar */
     .top{display:flex;align-items:center;justify-content:space-between;gap:16px}
     .brand{display:flex;align-items:center;gap:10px;font-weight:800}
     .logo{width:34px;height:34px;border-radius:50%;background:linear-gradient(135deg,var(--accent),var(--accent-2))}
-    .btn{border:1px solid var(--border);background:var(--surface);color:var(--text);padding:10px 14px;border-radius:20px;backdrop-filter:blur(10px);cursor:pointer}
+    .btn{border:1px solid var(--border);background:var(--surface);color:var(--text);padding:10px 14px;border-radius:12px;backdrop-filter:blur(10px);cursor:pointer}
 
     /* Hero – 중앙 정렬 레이아웃 */
-    .hero{text-align:center;padding:140px 20px 140px}
+    .hero{text-align:center;padding:110px 20px 60px}
     .hero h1{font-family:"Space Grotesk";font-size:clamp(36px,6vw,60px);line-height:1.18}
     .gradient{background:linear-gradient(90deg,var(--accent),var(--accent-2));-webkit-background-clip:text;background-clip:text;color:transparent}
     .hero p{margin-top:14px;font-size:18px;color:var(--muted)}
 
-    .section-title{font-family:"Space Grotesk";font-size:30px;text-align:center;margin:170px 0 30px}
+    .section-title{font-family:"Space Grotesk";font-size:30px;text-align:center;margin:70px 0 22px}
 
     /* Generic card */
-    .card{background:var(--surface);border-radius:var(--radius);padding:22px;box-shadow:var(--shadow);backdrop-filter:blur(10px)}
+    .card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:22px;box-shadow:var(--shadow);backdrop-filter:blur(10px)}
 
     /* Projects – 원래 카드 3열 복귀 */
     .projects{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
@@ -69,9 +69,6 @@
     /* 2열 카드 레이아웃 (Education / Experience) */
     .grid2{display:grid;grid-template-columns:repeat(2,1fr);gap:22px}
     @media(max-width:768px){.grid2{grid-template-columns:1fr}}
-    .center{
-      text-align: center; margin-bottom: 20px;
-    }
 
     /* Entry blocks (기간/타이틀/설명) */
     .entry{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:16px 18px;box-shadow:var(--shadow);backdrop-filter:blur(10px);margin:14px 0}
@@ -84,11 +81,7 @@
     .tools{flex:1}
     .bars{flex:2}
     .skill{margin:10px 0}
-    .skill label{display:flex;justify-content:space-between;
-      font-size: 15px;
-    font-family: "Space Grotesk";
-    font-weight: 700;
-    margin-bottom: 10px;}
+    .skill label{display:flex;justify-content:space-between;font-size:14px}
     .bar{height:10px;background:rgba(127,127,218,.18);border:1px solid var(--border);border-radius:999px;overflow:hidden}
     .bar i{display:block;height:100%;background:linear-gradient(90deg,var(--accent),var(--accent-2));width:0}
 
@@ -109,7 +102,6 @@
 .tab[aria-selected="true"]{outline:2px solid transparent;box-shadow:0 0 0 2px rgba(0,0,0,.02), inset 0 0 0 2px var(--accent);}
 .tabPanel{display:none}
 .tabPanel.active{display:block}
-.tab{color:var(--muted);}
 
 </style>
 </head>
@@ -128,18 +120,17 @@
 
     <!-- Intro block: 사진 + 소개글 (두 번째 레이아웃) -->
     <section id="about">
-      <div class="" style="padding:26px">
+      <div class="card" style="padding:26px">
         <div class="aboutWrap">
           <figure class="aboutPhoto">
             <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?q=80&w=800&auto=format&fit=crop" alt="Ji-yeon profile"/>
           </figure>
           <div class="aboutText">
             <h3 style="margin:0 0 10px;font-family:'Space Grotesk';font-size:24px">Why hire me for your <span class="gradient">next project?</span></h3>
-            <p class="muted">Flask 기반 백엔드 실무, 팀 프로젝트에서 Git Flow/리뷰 문화 정착. OpenGL + tinygltf로 스키닝/애니메이션을 직접 구현하며 렌더링 파이프라인 이해도를 쌓았어. 사용자 경험과 성능 둘 다 챙기는 풀스택을 지향해.</p>
+            <p class="muted">Flask 기반 백엔드 실무 8개월, 팀 프로젝트에서 Git Flow/리뷰 문화 정착. OpenGL + tinygltf로 스키닝/애니메이션을 직접 구현하며 렌더링 파이프라인 이해도를 쌓았어. 사용자 경험과 성능 둘 다 챙기는 풀스택을 지향해.</p>
             <div class="aboutBtns">
+              <a class="btn" href="#projects">Portfolio</a>
               <a class="btn" href="#" download>Download CV</a>
-              <a class="btn" href="https://gangjiyeon.github.io/">GitBlog</a>
-              <a class="btn" href="https://gjy-dev.tistory.com/">DailyBlog</a>
             </div>
             <div class="aboutStats">
               <div><strong>3+ years</strong><span>Experience</span></div>
@@ -155,19 +146,7 @@
       <h2 class="section-title">Projects</h2>
       <div class="projects">
         <article class="card p-card">
-          <div class="thumb">PLANNERZ</div>
-          <h3>PLANNERZ</h3>
-          <p>스케줄/프로젝트 관리 웹사이트</p>
-          <span class="tag">JAVA</span><span class="tag">Spring Framework</span><span class="tag">JPA</span>
-        </article>
-        <article class="card p-card">
-          <div class="thumb">PLANERZ moblie</div>
-          <h3>PLANERZ moblie</h3>
-          <p>투두리스트, 프로젝트, 일정관리 앱</p>
-          <span class="tag">JAVA</span><span class="tag">안드로이드 스튜디오</span>
-        </article>
-        <article class="card p-card">
-          <div class="thumb">No More Alba</div>
+          <div class="thumb">가계부 웹앱</div>
           <h3>Personal Finance (Flask + MySQL)</h3>
           <p>풀캘린더·결제 API·카카오 알림 연동. GitHub Issues/Projects로 일정 관리.</p>
           <span class="tag">Flask</span><span class="tag">MySQL</span><span class="tag">Chart.js</span>
@@ -179,46 +158,49 @@
           <span class="tag">Unity</span><span class="tag">Python</span><span class="tag">NLP</span>
         </article>
         <article class="card p-card">
-          <div class="thumb">정령</div>
+          <div class="thumb">OpenGL GLTF</div>
           <h3>GLTF Character Renderer</h3>
           <p>tinygltf 로더, JOINTS_0/WEIGHTS_0 스키닝, 애니메이션 적용 및 디버깅.</p>
-          <span class="tag">blender</span><span class="tag">Unity</span><span class="tag">GLSL</span>
+          <span class="tag">OpenGL</span><span class="tag">C++</span><span class="tag">GLSL</span>
         </article>
       </div>
-      
     </section>
 
     <!-- Education & Experience (2열) -->
     <section id="journey">
-      <h2 class="section-title"><span class="gradient">My Academic</span> and <span class="gradient">Professional Journey</span></h2>
+      <h2 class="section-title">My Academic and Professional Journey</h2>
       <div class="grid2">
         <div>
-          <div class=""><h3 class="center">Education</h3>
+          <div class="card"><h3>Education</h3>
             <div class="entry">
-              <div class="period">2025 - 2026</div>
-              <div class="title">Pukyong National University</div>
-              <div class="desc">Department of Computer Engineering</div>
+              <div class="period">2025 · Transfer</div>
+              <div class="title">부경대 컴퓨터공학과</div>
+              <div class="desc">정보보호론 · 모바일 프로그래밍 · 소프트웨어공학 등 전공 심화</div>
             </div>
             <div class="entry">
               <div class="period">2022</div>
-              <div class="title">Mege-it</div>
-              <div class="desc">Java fullstack Web Development Job Training Program</div>
+              <div class="title">Front‑end Training</div>
+              <div class="desc">웹 접근성 · 반응형 UI 제작</div>
             </div>
             <div class="entry">
               <div class="period">2021</div>
-              <div class="title">Busan National University</div>
-              <div class="desc">Department of Plant Sciences</div>
+              <div class="title">UI Design Training</div>
+              <div class="desc">Figma 컴포넌트 시스템 · 타이포그래피</div>
             </div>
           </div>
         </div>
         <div>
-          <div class=""><h3 class="center">Professional Experience</h3>
+          <div class="card"><h3>Professional Experience</h3>
             <div class="entry">
-              <div class="period">2022 – 2023</div>
-              <div class="title">Adfun web agency</div>
-              <div class="desc">Flask-based Admin Page and API Development, PHP API Implementatio</div>
+              <div class="period">2024 – 2025</div>
+              <div class="title">백엔드 개발자 (인턴)</div>
+              <div class="desc">Flask 기반 REST API, 사내 웹 프로그램 개발/배포, 일부 PHP 유지보수</div>
             </div>
-            
+            <div class="entry">
+              <div class="period">2025</div>
+              <div class="title">오픈소스 팀프로젝트</div>
+              <div class="desc">Git Flow · 이슈/마일스톤 · 코드리뷰 프로세스 정착</div>
+            </div>
           </div>
         </div>
       </div>
@@ -237,16 +219,14 @@
       </div>
 
       <!-- FE Panel -->
-      <div id="tab-fe" class="card tabPanel active ">
-        <div class="skills-wrap grid2">
+      <div id="tab-fe" class="card tabPanel active">
+        <div class="skills-wrap">
           <div class="tools">
-            <h3 class="center">tools</h3>
             <p>🧩 React</p>
             <p>🎯 TypeScript</p>
             <p>🎨 CSS / Tailwind</p>
           </div>
           <div class="bars">
-            <h3 class="center">skills</h3>
             <div class="skill"><label>HTML/CSS <span>95%</span></label><div class="bar"><i style="width:95%"></i></div></div>
             <div class="skill"><label>React <span>80%</span></label><div class="bar"><i style="width:80%"></i></div></div>
             <div class="skill"><label>JavaScript/TS <span>85%</span></label><div class="bar"><i style="width:85%"></i></div></div>
@@ -259,13 +239,11 @@
       <div id="tab-be" class="card tabPanel">
         <div class="skills-wrap">
           <div class="tools">
-            <h3 class="center">tools</h3>
             <p>🐍 Flask</p>
             <p>☕ Spring MVC</p>
             <p>🗄 MySQL / SQLite</p>
           </div>
           <div class="bars">
-            <h3 class="center">skills</h3>
             <div class="skill"><label>Flask <span>85%</span></label><div class="bar"><i style="width:85%"></i></div></div>
             <div class="skill"><label>REST API <span>85%</span></label><div class="bar"><i style="width:85%"></i></div></div>
             <div class="skill"><label>SQL/ORM <span>80%</span></label><div class="bar"><i style="width:80%"></i></div></div>
@@ -277,13 +255,11 @@
       <div id="tab-xr" class="card tabPanel">
         <div class="skills-wrap">
           <div class="tools">
-            <h3 class="center">tools</h3>
             <p>🕹 OpenGL / GLSL</p>
             <p>📦 tinygltf</p>
             <p>🧠 Animation / Skinning</p>
           </div>
           <div class="bars">
-            <h3 class="center">skills</h3>
             <div class="skill"><label>OpenGL/C++ <span>70%</span></label><div class="bar"><i style="width:70%"></i></div></div>
             <div class="skill"><label>GLTF Pipeline <span>75%</span></label><div class="bar"><i style="width:75%"></i></div></div>
             <div class="skill"><label>Unity Basics <span>65%</span></label><div class="bar"><i style="width:65%"></i></div></div>
@@ -295,13 +271,11 @@
       <div id="tab-tools" class="card tabPanel">
         <div class="skills-wrap">
           <div class="tools">
-            <h3 class="center">tools</h3>
             <p>🖥 VS Code</p>
             <p>🔧 Git / GitHub</p>
             <p>🗂 Jira / Notion</p>
           </div>
           <div class="bars">
-            <h3 class="center">skills</h3>
             <div class="skill"><label>Git Workflow <span>85%</span></label><div class="bar"><i style="width:85%"></i></div></div>
             <div class="skill"><label>Code Review <span>80%</span></label><div class="bar"><i style="width:80%"></i></div></div>
             <div class="skill"><label>CI/CD Basics <span>60%</span></label><div class="bar"><i style="width:60%"></i></div></div>
@@ -321,7 +295,7 @@
     const root = document.body;
     const btn = document.getElementById('themeBtn');
     const saved = localStorage.getItem('theme');
-    function apply(t){ root.setAttribute('data-theme', t); btn.textContent = t==='dark' ? '☀' : '🌙 '; localStorage.setItem('theme', t); }
+    function apply(t){ root.setAttribute('data-theme', t); btn.textContent = t==='dark' ? '☀️ 라이트' : '🌙 다크'; localStorage.setItem('theme', t); }
     apply(saved || 'light');
     btn.addEventListener('click',()=> apply(root.getAttribute('data-theme')==='light'?'dark':'light'));
 
