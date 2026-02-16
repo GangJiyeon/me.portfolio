@@ -1,0 +1,184 @@
+@import "tailwindcss";
+
+/* Tailwind 4: 테마 설정 */
+@theme {
+  --color-dark: #0f172a;
+  --color-cozy: #fdfcfb;
+}
+
+@layer base {
+  body {
+    font-family: 'Pretendard', sans-serif;
+  }
+}
+
+@layer components {
+  .text-gradient {
+    background: linear-gradient(135deg, #6366f1 0%, #f43f5e 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  
+  .dark .text-gradient {
+    background: linear-gradient(135deg, #818cf8 0%, #fb7185 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+}
+
+@layer utilities {
+  .animate-fadeInUp {
+    animation: fadeInUp 0.8s ease-out forwards;
+  }
+  
+  /* Tailwind 4 버그 우회: dark: 클래스 수동 정의 */
+  
+  /* 배경색 - 기본 */
+  .dark .dark\:bg-slate-950 {
+    background-color: rgb(2 6 23);
+  }
+  .dark .dark\:bg-slate-900 {
+    background-color: rgb(15 23 42);
+  }
+  .dark .dark\:bg-slate-800 {
+    background-color: rgb(30 41 59);
+  }
+  .dark .dark\:bg-slate-700 {
+    background-color: rgb(51 65 85);
+  }
+  .dark .dark\:bg-slate-200 {
+    background-color: rgb(226 232 240);
+  }
+  .dark .dark\:bg-slate-100 {
+    background-color: rgb(241 245 249);
+  }
+  .dark .dark\:bg-slate-50 {
+    background-color: rgb(248 250 252);
+  }
+  
+  /* 배경색 - 투명도 있음 */
+  .dark .dark\:bg-slate-800\/40 {
+    background-color: rgb(30 41 59 / 0.4);
+  }
+  .dark .dark\:bg-slate-800\/50 {
+    background-color: rgb(30 41 59 / 0.5);
+  }
+  .dark .dark\:bg-slate-800\/60 {
+    background-color: rgb(30 41 59 / 0.6);
+  }
+  .dark .dark\:bg-slate-900\/90 {
+    background-color: rgb(15 23 42 / 0.9);
+  }
+  
+  /* 배경색 - 커스텀 dark 색상 */
+  .dark .dark\:bg-dark {
+    background-color: #0f172a;
+  }
+  .dark .dark\:bg-dark\/50 {
+    background-color: rgb(15 23 42 / 0.5);
+  }
+  
+  /* 배경색 - Indigo */
+  .dark .dark\:bg-indigo-600 {
+    background-color: rgb(79 70 229);
+  }
+  .dark .dark\:bg-indigo-900\/30 {
+    background-color: rgb(49 46 129 / 0.3);
+  }
+  .dark .dark\:bg-indigo-900\/20 {
+    background-color: rgb(49 46 129 / 0.2);
+  }
+  
+  /* 배경색 - Rose */
+  .dark .dark\:bg-rose-900\/20 {
+    background-color: rgb(136 19 55 / 0.2);
+  }
+  
+  /* 배경색 - 특수 (투명) */
+  .dark .dark\:bg-transparent {
+    background-color: transparent;
+  }
+  
+  /* 텍스트 색상 */
+  .dark .dark\:text-white {
+    color: rgb(255 255 255);
+  }
+  .dark .dark\:text-slate-900 {
+    color: rgb(15 23 42);
+  }
+  .dark .dark\:text-slate-800 {
+    color: rgb(30 41 59);
+  }
+  .dark .dark\:text-slate-700 {
+    color: rgb(51 65 85);
+  }
+  .dark .dark\:text-slate-600 {
+    color: rgb(71 85 105);
+  }
+  .dark .dark\:text-slate-500 {
+    color: rgb(100 116 139);
+  }
+  .dark .dark\:text-slate-400 {
+    color: rgb(148 163 184);
+  }
+  .dark .dark\:text-slate-300 {
+    color: rgb(203 213 225);
+  }
+  .dark .dark\:text-slate-200 {
+    color: rgb(226 232 240);
+  }
+  .dark .dark\:text-indigo-400 {
+    color: rgb(129 140 248);
+  }
+  
+  /* 보더 색상 */
+  .dark .dark\:border-dark {
+    border-color: #0f172a;
+  }
+  .dark .dark\:border-slate-800 {
+    border-color: rgb(30 41 59);
+  }
+  .dark .dark\:border-slate-700 {
+    border-color: rgb(51 65 85);
+  }
+  .dark .dark\:border-slate-300 {
+    border-color: rgb(203 213 225);
+  }
+  .dark .dark\:border-slate-200 {
+    border-color: rgb(226 232 240);
+  }
+  .dark .dark\:border-slate-100 {
+    border-color: rgb(241 245 249);
+  }
+  
+  /* Hover 상태 - 텍스트 */
+  .dark .dark\:hover\:text-indigo-400:hover {
+    color: rgb(129 140 248);
+  }
+  .dark .dark\:hover\:text-indigo-500:hover {
+    color: rgb(99 102 241);
+  }
+  
+  /* Hover 상태 - 배경 */
+  .dark .dark\:hover\:bg-indigo-500:hover {
+    background-color: rgb(99 102 241);
+  }
+  .dark .dark\:hover\:bg-slate-700:hover {
+    background-color: rgb(51 65 85);
+  }
+  
+  /* Placeholder */
+  .dark .dark\:placeholder-slate-400::placeholder {
+    color: rgb(148 163 184);
+  }
+  .dark .dark\:placeholder-slate-500::placeholder {
+    color: rgb(100 116 139);
+  }
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
